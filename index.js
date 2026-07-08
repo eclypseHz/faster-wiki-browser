@@ -17,7 +17,7 @@ function loadScript(src) {
 
     window.api = new mw.Api();
 
-    const base = "https://raw.githubusercontent.com/eclypseHz/faster-wiki-browser/refs/heads/main/";
+    const base = "https://cdn.jsdelivr.net/gh/eclypseHz/faster-wiki-browser/";
 
     const files = [
         "config.js",
