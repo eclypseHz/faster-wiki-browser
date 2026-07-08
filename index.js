@@ -7,5 +7,21 @@ window.WikiBrowser = {
 
     window.api = new mw.Api();
 
+    const base = "https://cdn.jsdelivr.net/gh/eclypseHz/faster-wiki-browser@main/";
+
+    const files = [
+        "config.js",
+        "lib/api.js",
+        "lib/pages.js",
+        "lib/batch.js",
+        "modules/replace.js",
+        "ui.js"
+    ];
+
+    for (const file of files) {
+        const code = await fetch(base + file).then(r => r.text());
+        eval(code);
+    }
+
     WikiBrowser.ui.mount();
 })();
