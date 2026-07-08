@@ -2,6 +2,16 @@ window.WikiBrowser = {
     modules: {}
 };
 
+function loadScript(src) {
+    return new Promise((resolve, reject) => {
+        const script = document.createElement("script");
+        script.src = src;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error("Falha ao carregar " + src));
+        document.head.appendChild(script);
+    });
+}
+
 (async () => {
     await mw.loader.using("mediawiki.api");
 
@@ -20,10 +30,7 @@ window.WikiBrowser = {
 
     for (const file of files) {
         console.log("Loading:", file);
-
-        const code = await fetch(base + file).then(r => r.text());
-
-        new Function(code)();
+        await loadScript(base + file);
     }
 
     console.log(WikiBrowser);
