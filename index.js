@@ -23,5 +23,6 @@ window.WikiBrowser = {
         eval(code);
     }
 
+    console.log("Faster Wiki Browser loaded");
     WikiBrowser.ui.mount();
 })();
