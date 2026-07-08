@@ -15,13 +15,15 @@ window.WikiBrowser = {
         "lib/pages.js",
         "lib/batch.js",
         "modules/replace.js",
-        "ui.js"
+        "lib/ui.js"
     ];
 
     for (const file of files) {
         console.log("Loading:", file);
 
         const code = await fetch(base + file).then(r => r.text());
+
+        new Function(code)();
     }
 
     console.log(WikiBrowser);
