@@ -7,7 +7,7 @@ function loadScript(src) {
         const script = document.createElement("script");
         script.src = src;
         script.onload = () => resolve();
-        script.onerror = () => reject(new Error("Falha ao carregar " + src));
+        script.onerror = () => reject(new Error("Failed when loading " + src));
         document.head.appendChild(script);
     });
 }
