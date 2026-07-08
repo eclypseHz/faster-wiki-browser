@@ -19,10 +19,11 @@ window.WikiBrowser = {
     ];
 
     for (const file of files) {
+        console.log("Loading:", file);
+
         const code = await fetch(base + file).then(r => r.text());
-        eval(code);
     }
 
-    console.log("Faster Wiki Browser loaded");
+    console.log(WikiBrowser);
     WikiBrowser.ui.mount();
 })();
